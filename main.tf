@@ -14,6 +14,13 @@
  * limitations under the License.
  */
 
+terraform {
+  backend "gcs" {}
+}
+
+provider "google" {
+}     
+
 data "template_file" "nat-startup-script" {
   template = "${file("${format("%s/config/startup.sh", path.module)}")}"
 
